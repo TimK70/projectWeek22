@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "wk22_bastion" {
 
   launch_template {
     id      = aws_launch_template.wk22_bastion.id
-    version = "$latest"
+    version = "$Latest"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_autoscaling_group" "wk22_database" {
 
   launch_template {
     id      = aws_launch_template.wk22_database.id
-    version = "$latest"
+    version = "$Latest"
   }
 }
 
