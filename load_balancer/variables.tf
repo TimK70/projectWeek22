@@ -14,7 +14,7 @@ variable "listener_protocol" {
 }
 
 variable "tg_port" {
-  default = 8001
+  default = 80
 }
 
 variable "tg_protocol" {
