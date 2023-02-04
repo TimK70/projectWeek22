@@ -32,6 +32,10 @@ resource "aws_launch_template" "wk22_database" {
   name_prefix            = "wk22_database"
   user_data              = filebase64("httpd_install.sh")
   vpc_security_group_ids = [var.private_sg]
+  
+  tags = {
+    Name = "wk22_database"
+  }
 }
 
 resource "aws_autoscaling_group" "wk22_database" {
@@ -39,6 +43,7 @@ resource "aws_autoscaling_group" "wk22_database" {
   name             = "wk22_database"
   min_size         = 2
   max_size         = 3
+  vpc_zone_identifier = tolist(var.public_subnet)
 
   launch_template {
     id      = aws_launch_template.wk22_database.id

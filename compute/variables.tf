@@ -10,10 +10,10 @@ variable "private_subnet" {}
 
 variable "bastion_instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3.micro"
 }
 
 variable "database_instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3.micro"
 }
