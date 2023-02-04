@@ -48,7 +48,7 @@ resource "aws_autoscaling_group" "wk22_database" {
 
 resource "aws_autoscaling_attachment" "wk22_database" {
   autoscaling_group_name = aws_autoscaling_group.wk22_database.id
-  alb_target_group_arn = var.alb_tg
+  lb_target_group_arn = var.alb_tg
 }
 
 data "aws_ami" "linux" {
