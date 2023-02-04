@@ -16,10 +16,10 @@ resource "aws_autoscaling_group" "wk22_bastion" {
   min_size             = 1
   max_size             = 1
   name                 = "wk22_bastion"
-  vpc_zone_identififer = tolist(var.public_subnet)
+  vpc_zone_identifier = tolist(var.public_subnet)
 
 
-  aws_launch_template {
+  launch_template {
     id      = aws_launch_template.wk22_bastion.id
     version = "$latest"
   }
@@ -48,6 +48,7 @@ resource "aws_autoscaling_group" "wk22_database" {
 
 resource "aws_autoscaling_attachment" "wk22_database" {
   autoscaling_group_name = aws_autoscaling_group.wk22_database.id
+  alb_target_group_arn = var.alb_tg
 }
 
 data "aws_ami" "linux" {
@@ -55,6 +56,7 @@ data "aws_ami" "linux" {
 
   filter {
     name = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 
   owners = ["amazon"]

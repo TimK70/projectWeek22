@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "wk22_igw" {
     Name = "wk22_igw"
   }
 
-  lifecycle = {
+  lifecycle {
     create_before_destroy = true
   }
 }
@@ -49,7 +49,7 @@ resource "aws_route" "default_private_route" {
 }
 
 resource "aws_default_route_table" "wk22_private_rt" {
-  default_route_table_id = aws_vpc.KP21_vpc.default_route_table_id
+  default_route_table_id = aws_vpc.wk22_vpc.default_route_table_id
 
   tags = {
     Name = "wk22_private"

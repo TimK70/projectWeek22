@@ -5,7 +5,7 @@ output "private_sg" {
 }
 
 output "private_subnet" {
-  value = aws.subnet.wk22_private_subnet[*].id
+  value = aws_subnet.wk22_private_subnet[*].id
 }
 
 output "public_sg" {
