@@ -5,4 +5,4 @@ sudo yum install httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo su
-echo "Hello, Green Team!! -Tim K" > /var/www/html/index.html
+echo "Hello, Green Team!! from $(hostname -f)" > /var/www/html/index.html
