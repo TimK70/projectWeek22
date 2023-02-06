@@ -45,7 +45,7 @@ resource "aws_route" "default_public_route" {
 resource "aws_route" "default_private_route" {
   route_table_id         = aws_route_table.wk22_private_rt.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.wk22_igw.id
+  nat_gateway_id         = aws_nat_gateway.wk22_igw.id
 }
 
 resource "aws_default_route_table" "wk22_private_rt" {
