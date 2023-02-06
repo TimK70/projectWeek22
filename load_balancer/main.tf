@@ -14,9 +14,9 @@ resource "aws_lb" "wk22_lb" {
 
 resource "aws_lb_target_group" "wk22_tg" {
   name     = "wk22-lb-tg-${substr(uuid(), 0, 3)}"
-  protocol = var.tg_protocol
-  port     = var.tg_port
-  vpc_id   = var.vpc_id
+  protocol = "TCP"
+  port     = 80
+  vpc_id   = aws_vpc.wk22_vpc.id
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [name]
